@@ -18,5 +18,8 @@
     <ClCompile Include="..\..\..\algoritm_study_c_0805\algoritm_study_c_0805\A4_0813.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="A4.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
