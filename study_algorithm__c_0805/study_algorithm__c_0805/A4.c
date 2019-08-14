@@ -45,7 +45,7 @@ void sol()
 				push(cur.data, cur.idx);
 			}
 			else {
-				if (cur.data == num && cur.idx == idx) {
+				if (cur.data == i && cur.idx == idx) {
 					printf("%d\n", ++cnt);
 					return;
 				}
