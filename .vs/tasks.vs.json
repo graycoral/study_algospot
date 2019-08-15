@@ -5,6 +5,11 @@
       "taskLabel": "task-A4",
       "appliesTo": "study_algorithm__c_0805/study_algorithm__c_0805/A4.c",
       "type": "launch"
+    },
+    {
+      "taskLabel": "task-A7",
+      "appliesTo": "study_algorithm__c_0805/study_algorithm__c_0805/A7.c",
+      "type": "launch"
     }
   ]
 }
