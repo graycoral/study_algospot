@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAXN	((int)2e5+10)
 
-int N, M;
+int N, M, retValUp, retValDown;
 int q[MAXN];
 
 void input()
@@ -15,57 +15,56 @@ void input()
 int downBS(int s, int e, int val)
 {
 	int m = (s + e) / 2;
-	static int retVal = -1;
 
-	if (s > e)	return retVal;
+	if (s > e)	return retValDown;
 
 	if (q[m] == val) {
 		int tmp = -1;
-		retVal = m;
+		retValDown = m;
 		tmp = downBS(s, m - 1, val);
-		if (tmp != -1)	retVal = tmp;
+		if (tmp != -1)	retValDown = tmp;
 	}
-	else if (q[m] > val) { return upBS(s, m - 1, val); }
-	else { return upBS(m + 1, e, val); }
+	else if (q[m] > val) { return downBS(s, m - 1, val); }
+	else { return downBS(m + 1, e, val); }
 
-	return retVal;
+	return retValDown;
 }
 
 int upBS(int s, int e, int val)
 {
 	int m = (s + e) / 2;
-	static int retVal = -1;
-
-	if (s > e )	return retVal;
+	if (s > e )	return retValUp;
 
 	if (q[m] == val) {
 		int tmp = -1;
-		retVal = m;
+		retValUp = m;
 		tmp = upBS(m + 1, e, val);
-		if (tmp != -1)	retVal = tmp;
+		if (tmp != -1)	retValUp = tmp;
 	}
 	else if (q[m] > val) { return upBS(s, m - 1, val); }
 	else { return upBS(m + 1, e, val); }
 
-	return retVal;
+	return retValUp;
 }
 
 void sol()
 {
-	int retVal = -1;
 	int M;
 	scanf("%d", &M);
 
 	while (M--) {
 		int tmp, hi=0, low=0;
+		retValUp = -1; retValDown = -1;
 		scanf("%d", &tmp);
 
-		hi = upBS(0, N - 1, tmp);
 		low = downBS(0, N - 1, tmp);
-		retVal = hi - low + 1;
+		if (low < 0) {
+			printf("0 ");
+			continue;
+		}
 
-		if (low < 0) retVal = 0;
-		printf("%d ", retVal);
+		hi = upBS(0, N - 1, tmp);
+		printf("%d ", hi - low + 1);
 	}
 }
 
