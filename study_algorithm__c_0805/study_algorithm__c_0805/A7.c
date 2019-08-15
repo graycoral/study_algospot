@@ -20,8 +20,10 @@ int downBS(int s, int e, int val)
 	if (s > e)	return retVal;
 
 	if (q[m] == val) {
+		int tmp = -1;
 		retVal = m;
-		downBS(s, m - 1, val);
+		tmp = downBS(s, m - 1, val);
+		if (tmp != -1)	retVal = tmp;
 	}
 	else if (q[m] > val) { return upBS(s, m - 1, val); }
 	else { return upBS(m + 1, e, val); }
@@ -34,11 +36,13 @@ int upBS(int s, int e, int val)
 	int m = (s + e) / 2;
 	static int retVal = -1;
 
-	if (s > e)	return retVal;
+	if (s > e )	return retVal;
 
 	if (q[m] == val) {
+		int tmp = -1;
 		retVal = m;
-		upBS(s, m + 1, val);
+		tmp = upBS(m + 1, e, val);
+		if (tmp != -1)	retVal = tmp;
 	}
 	else if (q[m] > val) { return upBS(s, m - 1, val); }
 	else { return upBS(m + 1, e, val); }
@@ -46,30 +50,29 @@ int upBS(int s, int e, int val)
 	return retVal;
 }
 
-
-
-int sol()
+void sol()
 {
 	int retVal = -1;
 	int M;
 	scanf("%d", &M);
 
 	while (M--) {
-		int tmp;
+		int tmp, hi=0, low=0;
 		scanf("%d", &tmp);
-		retVal = upBS(0, N, tmp) - downBS(0, N, tmp);
-	}
 
-	return retVal;
+		hi = upBS(0, N - 1, tmp);
+		low = downBS(0, N - 1, tmp);
+		retVal = hi - low + 1;
+
+		if (low < 0) retVal = 0;
+		printf("%d ", retVal);
+	}
 }
 
 int main()
 {
-	int ans = 0;
-
 	input();
-	ans = sol();
-	printf("%d", ans);
+	sol();
 
 	return 0;
 }

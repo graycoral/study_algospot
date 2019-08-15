@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-A4",
+      "appliesTo": "study_algorithm__c_0805/study_algorithm__c_0805/A4.c",
+      "type": "launch"
+    }
+  ]
+}
