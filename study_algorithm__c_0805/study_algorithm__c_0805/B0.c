@@ -5,11 +5,11 @@
 int N,M,L;
 
 struct Q {
-    int r,c,v;
+    int r,c,v; // v : visited
 };
 
-struct Q s[MAXN*MAXN];
-struct Q t[MAXN*MAXN];
+struct Q s[MAXN*MAXN]; // »ç´ë
+struct Q t[MAXN*MAXN]; // target
 
 void input()
 {
@@ -27,7 +27,7 @@ int sol()
 {
     int retCnt = 0;
     
-    for(int i=0; i< M; i++){
+    for(int i=0; i < M; i++){
         for(int j=0; j<N; j++){
             if(s[j].v == 1) continue;
             if(t[i].c > s[j].c){
