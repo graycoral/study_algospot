@@ -7,6 +7,7 @@ int rp, wp;
 struct pos {
 	int x;
 	int y;
+	int t;
 };
 
 int map[MAXN][MAXN];
@@ -55,10 +56,11 @@ void push(int x, int y, int cnt)
 	if (x < 1 || x > X || y < 1 || y > Y)	return;
 	
 	q[wp].x = x;
+	q[wp].t = cnt;
 	q[wp++].y = y;
 	map[x][y] = cnt;
-	printf("push!! x: %d, y:%d\n",x,y);
-	print();
+	//printf("push!! x: %d, y:%d\n",x,y);
+	//print();
 }
 
 int empty() {
@@ -70,17 +72,14 @@ int size() {
 }
 
 int BFS(int x, int y) {
-	int cnt = 1;
-
-	push(x, y, cnt++);
+	push(y, x, 1);
 	while (!empty()) {
 		struct pos cur = pop();		
 		for (int i = 0; i < 4; i++) {
-			if (cur.x + dc[i] == (e.x) && cur.y + dr[i] == (e.y)) { return cnt; }
+			if (cur.x + dc[i] == (e.y) && cur.y + dr[i] == (e.x)) { return cur.t; }
 			if (map[cur.x + dc[i]][cur.y + dr[i]] != 0)	continue;
-			push(cur.x + dc[i], cur.y + dr[i], cnt);
-		}
-		if (size() == 1) cnt++;
+			push(cur.x + dc[i], cur.y + dr[i], cur.t+1);
+		}		
 	}
 
 	return -1;
