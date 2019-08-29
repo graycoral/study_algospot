@@ -57,5 +57,8 @@
     <ClCompile Include="W:\study\Edu\SW_C\4_BFS_DFS\B2_정답.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2167.c">
+      <Filter>소스 파일\백준</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

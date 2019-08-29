@@ -20,8 +20,7 @@ int dc[] = { 0,0,1,-1 };
 
 void input()
 {
-	scanf("%d %d", &X, &Y);
-	scanf("%d %d %d %d", &s.c, &s.r, &e.c, &e.r);
+	scanf("%d %d", &Y, &X);
 
 	for (int i = 1; i <= Y; i++) {
 		char tmp[MAXN];
@@ -38,9 +37,9 @@ void push(int r, int c, int cnt)
 {
 	if (c < 1 || c > X || r < 1 || r > Y)	return;
 	if (v[r][c] > 0)	return;
-	if (map[r][c] != 0)	return;
+	if (map[r][c] != 1)	return;
 	v[r][c] = cnt;
-	q[wp].r = r; q[wp].t = cnt; q[wp++].c = c;
+	q[wp].r = r; q[wp].c = c; q[wp++].t = cnt;
 }
 
 int empty() {
@@ -49,11 +48,11 @@ int empty() {
 
 int size() { return wp - rp; }
 
-int BFS(int r, int c) {
-	push(r, c, 0);
+int BFS() {
+	push(1, 1, 1);
 	while (!empty()) {
 		struct pos cur = pop();
-		if ((cur.r == e.r) && (cur.c == e.c)) { return cur.t; }
+		if ((cur.r == Y) && (cur.c == X)) { return cur.t; }
 		for (int i = 0; i < 4; i++) {
 			push(cur.r + dr[i], cur.c + dc[i], cur.t + 1);
 		}
@@ -64,6 +63,6 @@ int BFS(int r, int c) {
 int main()
 {
 	input();
-	printf("%d\n", BFS(s.r, s.c));
+	printf("%d\n", BFS());
 	return 0;
 }
