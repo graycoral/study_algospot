@@ -13,8 +13,8 @@ struct Q queue[MAXN * MAXN];//크기는 경험개수(visited배열 크기) linea
 int wp, rp;
 void push(int r, int c, int t){
     if (map[r][c] != '1') return;//저글링 아님(혹은 범위 벗어남)
-    if (visited[r][c] == 1) return;//방문했었음(이미 경험했음)
-    visited[r][c] = 1;//방문표시(경험표시)
+    if (visited[r][c] > 0) return;//방문했었음(이미 경험했음)
+    visited[r][c] = t;//방문표시(경험표시)
     alive--;//저글링 수 감소시키기
     queue[wp].r=r; queue[wp].c=c; queue[wp].t=t; wp++;
 }
@@ -50,11 +50,22 @@ int BFS(void){
     }
     return cur.t;//4.마지막에 확산된 저글링이 마지막에 죽은 저글링임
 }
+
+void print()
+{
+	for (int i = 0; i <= Y; i++) {
+		for (int j = 0; j <= X; j++) {
+			printf("%3d ", visited[i][j]);
+		}
+		printf("\n");
+	}
+}
 int main(void){
     int ans;
     InputData();
     ans = BFS();
     printf("%d\n", ans);
     printf("%d\n", alive);
+	//print();
     return 0;
 }

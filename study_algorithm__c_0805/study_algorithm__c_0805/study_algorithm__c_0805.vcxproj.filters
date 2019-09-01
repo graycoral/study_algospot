@@ -60,5 +60,26 @@
     <ClCompile Include="2167.c">
       <Filter>소스 파일\백준</Filter>
     </ClCompile>
+    <ClCompile Include="A4.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B0_정답.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B1_정답.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B2.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B2_정답.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B6.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B7.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
