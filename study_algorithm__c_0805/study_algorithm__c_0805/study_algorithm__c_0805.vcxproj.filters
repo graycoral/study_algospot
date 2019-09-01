@@ -18,9 +18,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\algoritm_study_c_0805\algoritm_study_c_0805\A4_0813.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="A5.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -48,37 +45,22 @@
     <ClCompile Include="B1.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="W:\study\Edu\SW_C\4_BFS_DFS\B0_정답.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="W:\study\Edu\SW_C\4_BFS_DFS\B1_정답.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="W:\study\Edu\SW_C\4_BFS_DFS\B2_정답.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="2167.c">
       <Filter>소스 파일\백준</Filter>
     </ClCompile>
     <ClCompile Include="A4.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="B0_정답.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="B1_정답.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="B2.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="B2_정답.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="B6.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="B7.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="B3.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
