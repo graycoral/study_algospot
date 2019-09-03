@@ -10,12 +10,6 @@ int path[MAXN];//경로 저장(이전 역을 저장하면 됨)
 int queue[MAXN * 50];//크기는 경험개수(visited배열 크기 * 50) linear queue
 //적게는 10배, 많게는 100배 정도 필요(공간복잡도 문제시 circular queye 사용)
 int wp, rp;
-void push(int n, int t, int pre) {
-	if (visited[n] <= t) return;//이전이 더 좋았음
-	visited[n] = t;//방문표시(경험표시)
-	path[n] = pre;//이전 역 번호 저장
-	queue[wp++] = n;
-}
 int front(void) { return queue[rp]; }
 void pop(void) { rp++; }
 int size(void) { return wp - rp; }
@@ -29,6 +23,14 @@ void InputData(void) {
 		}
 	}
 }
+
+void push(int n, int t, int pre) {
+	if (visited[n] <= t) return;//이전이 더 좋았음
+	visited[n] = t;//방문표시(경험표시)
+	path[n] = pre;//이전 역 번호 저장
+	queue[wp++] = n;
+}
+
 int BFS(void) {
 	int cur, e;
 	wp = rp = 0;//1.필요시 초기화
