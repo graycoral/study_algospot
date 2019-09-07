@@ -12,7 +12,7 @@ void input()
 {
 	scanf("%d %d", &N, &M);
 	for (int i = 0; i < N; i++) {
-		for (int j = 0; i < N; j++) {
+		for (int j = 0; j < N; j++) {
 			scanf("%d", &map[i][j]);
 		}
 	}
@@ -46,11 +46,12 @@ int BFS()
 void print(int idx)
 {
 	if (idx == 0) {
-		printf("%d ", path[idx] + 1);
+		printf("%d ", idx + 1);
 		return;
 	}	
-	printf("%d ", path[idx] +1);
 	print(path[idx]);
+	printf("%d ", idx +1);
+	
 }
 
 int main()
