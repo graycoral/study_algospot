@@ -16,7 +16,7 @@ void input()
 		}
 	}
 }
-
+/*
 void print()
 {
 	printf("==============================================\n");
@@ -26,6 +26,7 @@ void print()
 	printf(": %d\n", SUM);
 	printf("==============================================\n");
 }
+*/
 
 void DFS(int s, int n, int sum)
 {
@@ -35,7 +36,7 @@ void DFS(int s, int n, int sum)
 			sum += map[s][1];
 			if (SUM > sum)	SUM = sum;
 			data[n] = map[s][1];
-			print();
+			//print();
 		}		
 		return;
 	}

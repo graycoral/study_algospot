@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 int coin[] = {500, 100, 50, 10};
 int data[4];
 
