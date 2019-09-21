@@ -93,6 +93,9 @@
     <ClCompile Include="c3.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="C3_정답.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="4일차답.c">

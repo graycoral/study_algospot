@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define MAXN	((int)10 +2)
-#define IFN		(0x7fffffff)
+#define MAXW ((int)64e3 + 2)
+#define IFN		(0x7ffffff)
 #define TEST (2)
 
 int N, W;
 int coin[MAXN];
 int CNT = IFN;
+int dp[MAXW];
 
 void input()
 {
@@ -17,37 +19,27 @@ void input()
 	scanf("%d", &W);
 }
 
-void DFS(int n, int w, int cnt)
-{
-	if (CNT <= cnt)	return;	
-
-	if (w == 0) { 
-		CNT = cnt;
-		return;
-	}
-
-	if (n >= N)		return;
-
-	for (int i =  w/coin[n]; i >= 0; i--) {
-		DFS(n + 1, w-(i*coin[n]), cnt+i);
-	}
-}
-
-
-
 void sol()
 {
-#if TEST == 1 // time over
-	DFS(0, W, 0);
-#else TEST == 2 
+	dp[0] = 0;
+	for (int i = 1; i <= W; i++)	dp[i] = IFN;
 
-#endif
+	for (int i = 0; i < N; i++) {
+		for (int j = coin[i]; j <= W; j++) {
+			if (dp[j] > dp[j - coin[i]] + 1) {
+				dp[j] = dp[j - coin[i]] + 1;
+			}
+		}
+	}
+
+	CNT = dp[W];
+
 }
 
 int main()
 {
 	input();
-	
+	sol();
 
 	if (CNT == IFN)	printf("impossible\n");
 	else			printf("%d", CNT);
